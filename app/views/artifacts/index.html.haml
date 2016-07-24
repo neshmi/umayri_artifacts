@@ -1,0 +1,24 @@
+#index-banner.section.no-pad-bot
+  .container
+    %br/
+    %br/
+    %h1.header.center.orange-text 'Umayri Artifacts
+    .row.center
+      %h5.header.col.s12.light Artifact and object registration
+    .row.center
+      = link_to "Add Artifact", new_artifact_path,  class: "btn-large waves-effect waves-light orange"
+    %br/
+    %br/
+.container
+  .section
+    / Icon Section
+    .row
+      .col.s12.m12
+        %h2 Artifacts
+        %ul.collection
+          - @artifacts.each do |artifact|
+            %li.collection-item.avatar
+              - if artifact.has_top_photo?
+                = image_tag artifact.top_photo_url, class: "circle", alt: "Top Photo for #{artifact.registration_number}"
+              %span.title= link_to artifact.registration_number, edit_artifact_path(artifact.registration_number)
+              %p= artifact.designation

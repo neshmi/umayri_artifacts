@@ -1,0 +1,55 @@
+@import "materialize";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require materialize
+ *= require style
+ */
+
+@media print {
+  .hidden-print {
+    display: none !important;
+    height: 0;
+  }
+
+  h1 {
+    font-size: 14pt;
+    font-weight: bold;
+  }
+
+  .col {
+    font-size: 10pt;
+    padding: 0;
+  }
+
+  .artifact-item {
+    page-break-inside: avoid;
+    width: 100% !important;
+  }
+
+  .item-description .row {
+    margin: 0 !important;
+    margin-right: 10px;
+  }
+
+  .item-image img {
+    width: 1.5in;
+  }
+
+}
+
+@page {
+  margin: 1.5cm;
+  size: auto;
+}

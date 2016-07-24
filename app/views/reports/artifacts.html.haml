@@ -1,0 +1,10 @@
+#index-banner.section.no-pad-bot
+  .container
+    %br/
+    %br/
+    %h1.header.center Madaba Plains Project - Tall al-'Umayri
+    .row.center
+      %h5.header.col.s12.light Artifacts - 2016
+    %hr
+    - @artifacts.each do |artifact|
+      = render partial: 'item', locals: {item: artifact}

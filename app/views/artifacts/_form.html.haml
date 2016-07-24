@@ -1,0 +1,242 @@
+= form_for @artifact do |f|
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          artifact identification
+        .row
+          .input-field.col.m5.s12
+            = f.text_field :registration_number
+            = f.label :registration_number, "Registration Number"
+          .input-field.col.m5.s12
+            = f.text_field :field_number
+            = f.label :field_number, "Field Number"
+          .input-field.col.m2.s12
+            = f.text_field :season, value: @artifact.season || 2016
+            = f.label :season, "Season"
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          artifact location
+        .row
+          .input-field.col.m4.s6
+            = f.text_field :site, value: @artifact.site || "Umayri"
+            = f.label :site
+          .input-field.col.m4.s6
+            = f.select :field, Artifact.fields, { include_blank: true }
+            = f.label :field
+          .input-field.col.m4.s6
+            = f.select :square, Artifact.squares, { include_blank: true }
+            = f.label :square
+          .input-field.col.m3.s6
+            = f.text_field :locus
+            = f.label :locus, "Locus code (i.e.: 003)"
+          .input-field.col.m3.s6
+            = f.text_field :pail
+            = f.label :pail
+          .input-field.col.m3.s6
+            = f.text_field :location
+            = f.label :location, "Artifact location (optional)"
+          .input-field.col.m3.s6
+            = f.text_field :level
+            = f.label :level, "Level of artifact (i.e.: 912.34)"
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          artifact description
+        .row
+          .input-field.col.m3.s6
+            = f.select :designation, Artifact.designation, { include_blank: true }
+            = f.label :designation
+          .input-field.col.m3.s6
+            = f.select :certainty, Artifact.certainty, { include_blank: true }
+            = f.label :certainty, "Designation certainty"
+          .input-field.col.m3.s6
+            = f.select :period, Artifact.period, { include_blank: true }
+            = f.label :period, "Artifact period"
+          .input-field.col.m3.s6
+            = f.select :modifier_1, Artifact.modifiers, { include_blank: true }
+            = f.label :modifier_1, "Modifier 1"
+          .input-field.col.m3.s6
+            = f.select :modifier_2, Artifact.modifiers, { include_blank: true }
+            = f.label :modifier_2, "Modifier 2"
+          .input-field.col.m3.s6
+            = f.select :shape, Artifact.shape, { include_blank: true }
+            = f.label :shape
+          .input-field.col.m3.s6
+            = f.select :shape_mod, Artifact.shape_modifiers, { include_blank: true }
+            = f.label :shape_mod, "Shape Modifier"
+          .input-field.col.m3.s6
+            = f.select :material, Artifact.material, { include_blank: true }
+            = f.label :material
+          .input-field.col.m3.s6
+            = f.select :color, Artifact.color, { include_blank: true }
+            = f.label :color
+          .input-field.col.m3.s6
+            = f.select :preservation, Artifact.preservation, { include_blank: true }
+            = f.label :preservation
+          .input-field.col.m3.s6
+            = f.select :percent, Artifact.percent, { include_blank: true }
+            = f.label :percent
+          .input-field.col.m3.s6
+            = f.select :craftsmanship, Artifact.craftsmanship, { include_blank: true }
+            = f.label :craftsmanship
+          .input-field.col.m3.s6
+            = f.select :decoration, Artifact.decoration, { include_blank: true }
+            = f.label :decoration
+          .input-field.col.m3.s6
+            = f.text_field :weight
+            = f.label :weight, "Weight (g)"
+          .input-field.col.m3.s6
+            = f.text_field :length
+            = f.label :length, "Length (cm)"
+          .input-field.col.m3.s6
+            = f.text_field :width
+            = f.label :width, "Width (cm)"
+          .input-field.col.m3.s6
+            = f.text_field :height
+            = f.label :height, "Height (cm)"
+          .input-field.col.m3.s6
+            = f.text_field :diam
+            = f.label :diam, "Diameter (cm)"
+          .input-field.col.m3.s6
+            = f.text_field :perf_diam
+            = f.label :perf_diam, "Perforation Diameter (cm)"
+          .input-field.col.m3.s6
+            = f.select :condition, Artifact.condition, { include_blank: true }
+            = f.label :condition, "Condition"
+          .input-field.col.m3.s6
+            = f.text_field :number_of_pieces
+            = f.label :number_of_pieces
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          artifact artwork
+        .row
+          .input-field.col.m6.s6
+            = f.text_field :drawing_number
+            = f.label :drawing_number
+          .input-field.col.m6.s6
+            = f.text_field :drawing_date
+            = f.label :drawing_date
+          .input-field.col.m12.s12
+            = f.text_field :artist
+            = f.label :artist, "Artist's name"
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          photography
+        .row
+          .input-field.col.m3.s6
+            = f.text_field :top_number
+            = f.label :top_number, "Photo ID for Top View"
+          .input-field.col.m3.s6
+            = f.text_field :profile_number
+            = f.label :profile_number, "Photo ID for Profile View"
+          .input-field.col.m3.s6
+            = f.text_field :oblique_number
+            = f.label :oblique_number, "Photo ID for Oblique View"
+          .input-field.col.m3.s6
+            = f.text_field :photo_date
+            = f.label :photo_date
+          .input-field.col.m12.s12
+            = f.text_field :photographer
+            = f.label :photographer, "Photographer's name"
+          .input-field.col.m4.s12
+            .card
+              .card-image
+                - if @artifact.has_top_photo?("medium")
+                  = image_tag @artifact.top_photo_url("medium")
+                - else
+                  = image_tag @artifact.no_photo_url("medium")
+                .card-content
+                  %p Top Photo
+          .input-field.col.m4.s12
+            .card
+              .card-image
+                - if @artifact.has_profile_photo?("medium")
+                  = image_tag @artifact.profile_photo_url("medium")
+                - else
+                  = image_tag @artifact.no_photo_url("medium")
+                .card-content
+                  %p Profile Photo
+          .input-field.col.m4.s12
+            .card
+              .card-image
+                - if @artifact.has_oblique_photo?("medium")
+                  = image_tag @artifact.oblique_photo_url("medium")
+                - else
+                  = image_tag @artifact.no_photo_url("medium")
+                .card-content
+                  %p Oblique Photo
+
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          allocation
+        .row
+          .input-field.col.m6.s6
+            = f.select :allocation, Artifact.allocation, { include_blank: true }
+            = f.label :allocation
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          comments
+        .row
+          .input-field.col.m12.s12
+            = f.text_area :comments, class: "materialize-textarea"
+            = f.label :comments
+          .input-field.col.m6.s6
+            = f.text_field :entered_by
+            = f.label :entered_by
+          .input-field.col.m6.s6
+            = f.text_field :entry_date
+            = f.label :entry_date
+  .col.s12.m12
+    .card
+      .card-content
+        %span.card-title.orange-text.text-darken-4
+          LSU Location
+        .row
+          .input-field.col.m4.s6
+            = f.text_field :building
+            = f.label :building
+          .input-field.col.m4.s6
+            = f.text_field :room
+            = f.label :room
+          .input-field.col.m4.s6
+            = f.text_field :counter
+            = f.label :counter
+          .input-field.col.m6.s6
+            = f.text_field :cabinet
+            = f.label :cabinet, "Cabinet or Stack"
+          .input-field.col.m6.s6
+            = f.text_field :drawer
+            = f.label :drawer, "Drawer or Shelf"
+  .col.s12.m12
+    .card
+      .card-content
+        .row
+          .input-field.col.m4.s6
+            = f.submit "Save", class: "btn red"
+
+
+:javascript
+  var formsInit = function() {
+    $('select').material_select();
+    $('#artifact_comments').trigger('autoresize');
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 40 years to control year
+    });
+    Materialize.updateTextFields();
+  };
+
+  $(document).ready(formsInit)
+  $(document).on('page:load', formsInit)

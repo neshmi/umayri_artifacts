@@ -1,0 +1,58 @@
+.row.artifact-item
+  .col.s10.item-description
+    .row
+      .col.s3
+        %b Registration
+        %br
+        = item.registration_number
+      .col.s1
+        %b Field
+        %br
+        = item.field
+      .col.s2
+        %b Square
+        %br
+        = item.square
+      .col.s2
+        %b Locus
+        %br
+        = item.locus
+      .col.s1
+        %b Pail
+        %br
+        = item.pail
+      .col.s3
+        %b Allocation
+        %br
+        = item.allocation
+    .row
+      .col.s3
+        %b Designation
+        %br
+        = item.designation
+      .col.s3
+        %b Decoration
+        %br
+        = item.decoration
+      .col.s2
+        %b Mod. 1
+        %br
+        = item.modifier_1
+      .col.s2
+        %b Mod. 2
+        %br
+        = item.modifier_2
+      .col.s2
+        %b Material
+        %br
+        = item.material
+
+    .row
+  .col.s2.item-image
+    .card
+      .card-image
+        - if item.has_top_photo?("medium")
+          = image_tag item.top_photo_url("medium")
+        - else
+          = image_tag item.top_photo_url("medium")
+%hr
