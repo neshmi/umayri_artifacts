@@ -72,7 +72,7 @@
             = f.select :material, Artifact.material, { include_blank: true }
             = f.label :material
           .input-field.col.m3.s6
-            = f.select :color, Artifact.color, { include_blank: true }
+            = f.text_field :color
             = f.label :color
           .input-field.col.m3.s6
             = f.select :preservation, Artifact.preservation, { include_blank: true }
@@ -235,6 +235,9 @@
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15 // Creates a dropdown of 40 years to control year
     });
+    $('input#artifact_color').autocomplete({
+      data: #{ Artifact.autocomplete('color') }
+    })
     Materialize.updateTextFields();
   };
 
