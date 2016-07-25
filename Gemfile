@@ -27,8 +27,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'materialize-sass'
-
+gem 'materialize-sass', git: 'https://github.com/neshmi/materialize-sass.git'
 
 gem 'couchrest_model'
 gem "haml-rails", "~> 0.9"
